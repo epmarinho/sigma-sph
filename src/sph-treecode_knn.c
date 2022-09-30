@@ -134,7 +134,10 @@ void pump_neighbor(int query, int i)
         qnnlist.nn++;
 
         if (qnnlist.nn == K) {
-            qnn_binsort(qnnlist.nn);
+            //             qnn_binsort(qnnlist.nn);
+            //             qnn_sort_bruteforce();
+//             qnn_quicksort(0, qnnlist.nn - 1);
+            qnn_quickSort(0, qnnlist.nn - 1);
             qnnlist.topdistance = qnnlist.distance[last];
 
         }

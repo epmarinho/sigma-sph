@@ -12,7 +12,7 @@ institute	='Sao Paulo State University, IGCE/UNESP, Department of Statistics, Ap
 address		='Avenida 24A, 1515, Sala 21, Bloco I, DEMAC'
 zipcode		='13.506-900'
 
-# memory-model=-mcmodel=large
+memory-model=-mcmodel=large
 cpu-type=-march=native
 
 # Uncomment next line if you wish to integrate thermal epecific energies according to the SPH adiabatic heating equation:

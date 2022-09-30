@@ -3,7 +3,7 @@
 
 /*** WARNING: omp parallelism did not work in this module! ***/
 
-double psize[NMAX];
+double          psize[NMAX];
 
 OCTANT         *sigma_octree_root;
 
@@ -152,7 +152,8 @@ double maxfromlist(OCTANT * p)
 {
   /** this method performs a rough estimation of the octant size **/
     int             i;
-    double          topdistance = 0, distance;
+    double          topdistance = 0,
+        distance;
 
     for (i = 0; i < p->n; i++) {
         // topdistance = max(topdistance, p2p_d(p->x, x[p->plist[i]], p->eigenval, p->eigenvec));
@@ -237,9 +238,9 @@ void calc_covariance(int n, int *plist, double xc[], double sigma2[DIM][DIM])
 
 /****** Under construction *****/
 
-extern void release_sigma_octree_node(OCTANT *p);
+extern void     release_sigma_octree_node(OCTANT * p);
 
-void release_sigma_octree_node ( OCTANT* p )
+void release_sigma_octree_node(OCTANT * p)
 {
     free(p->plist);
     p->parent = NULL;
@@ -253,10 +254,11 @@ void release_sigma_octree_node ( OCTANT* p )
     p = NULL;
 }
 
-void sigma_octree_destroy(OCTANT *t)
+void sigma_octree_destroy(OCTANT * t)
 {
     for (descriptor_t octant = 0; octant < NCHILDREN; octant++) {
-        OCTANT *p = t->child[octant];
+        OCTANT         *p = t->child[octant];
+
         if (p != NULL) {
             sigma_octree_destroy(p);
             release_sigma_octree_node(p);

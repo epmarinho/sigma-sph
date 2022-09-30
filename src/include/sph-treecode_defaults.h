@@ -279,7 +279,7 @@ void            sph_gradients(index_t i);
 double          scalarprod(double a[], double b[]);
 
 /** binary_leapfrog(descriptor_t time_depth): performs the first half timestep at consecutive time-depth, then performs the full timestep in the root time-depth, and next performs again half timestep in the consecutive time-depth. Recently, I have adopted in-order binary integration rather than the prefix binary order of my Ph.D. Thesis (Marinho, 1997) **/
-void binary_leapfrog(descriptor_t time_depth);
+void            binary_leapfrog(descriptor_t time_depth);
 
 void            integrate(descriptor_t tdepth);
 
@@ -322,4 +322,8 @@ double          fHK89(double);
 
 extern size_t   numthreads;
 
-extern double psize[NMAX];
+extern double   psize[NMAX];
+
+extern void     qnn_sort_bruteforce(void);
+// extern void     qnn_quicksort(int first, int last);
+extern void     qnn_quickSort(int first, int last);

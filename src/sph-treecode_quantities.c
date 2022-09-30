@@ -275,7 +275,7 @@ void sph_init(size_t n)
             }   // end for
 
 #ifndef H_ATOM
-// #    define _MULTIPHASE_MODEL_2_
+            // #    define _MULTIPHASE_MODEL_2_
 #    ifdef _MULTIPHASE_MODEL_2_
 #        undef _MULTIPHASE_MODEL_
 #        undef _ADIABATIC_
@@ -789,8 +789,8 @@ void find_well_distant_nodes(int particle, const OCTANT * cluster)
                 double          r5 = r2 * r3;
 
                 /*** softened quadrupole components ***/
-                double          /** product of inertia **/PP[DIM][DIM],
-                                /** polar momentum of inertia **/QQ = 0;
+                double /** product of inertia **/ PP[DIM][DIM],
+                                /** polar momentum of inertia **/ QQ = 0;
 
                 for (descriptor_t j = 0; j < DIM; j++)
                     explicit_bzero(PP[j], sizeof(**PP) * DIM);
@@ -908,7 +908,7 @@ double Hilbert_Courant(index_t particle)
         dt_estimate = min(dt_estimate, COURANT_FACTOR * .125 * rho[particle] / fabs(rhodot[particle]) + 1);
     }
 
-                                        /** count time-faults: **/
+                                  /** count time-faults: **/
     if (dt_estimate <= dtmin) {
         dtfault++;
         return dtmin;
@@ -975,7 +975,7 @@ void timebin_share(size_t n)
 #endif
 }
 
-void binary_leapfrog(descriptor_t time_depth) // this is what has been adopted in the last three years
+void binary_leapfrog(descriptor_t time_depth)   // this is what has been adopted in the last three years
 {
     if (time_depth < max_time_depth)
         binary_leapfrog(time_depth + 1);
@@ -1096,7 +1096,7 @@ void integrate(descriptor_t time_depth)
 #ifdef _USE_T_CUT_
 /** Using cut-off temperature in the simulation is a rudimentary way of simulating cooling effects at high densities **/
 #    define T_cut 1000
-                    /*Kelvin */
+            /*Kelvin */
             /*** inserted in May 26 2022 ***/
             /*** inserted in June 1st 2022 ***/
             double          T_particle = meanweight * oneoverCv[particle] * u_unit * u[particle] / Rgas;

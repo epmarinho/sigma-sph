@@ -236,7 +236,10 @@ void find_selfregulating_kNN_cluster(size_t n)
                             qnnlist.distance[j] = p2p_d(x[qnnlist.list[j]], x[qnnlist.list[0]], eigenval[query], eigenvec[query]);
 
                         /* binary-sort the just modified k-NN list: */
-                        qnn_binsort(qnnlist.nn);
+                        //                         qnn_binsort(qnnlist.nn);
+                        //                         qnn_sort_bruteforce();
+//                         qnn_quicksort(0, qnnlist.nn - 1);
+                        qnn_quickSort(0, qnnlist.nn - 1);
 
                         /* get the distance from the query to the outermost k-NN particle: */
                         qnnlist.topdistance = qnnlist.distance[j - 1];
@@ -266,9 +269,6 @@ void find_selfregulating_kNN_cluster(size_t n)
 #define _TIGHT_CONVERGENCE_CRITERIA
 #ifdef _TIGHT_CONVERGENCE_CRITERIA
                 itsover =
-            /** inserted on Fri Oct 8, 2021 to avoid filamentar ellipsoids **/
-                    eigenval[query][0] > 3 * eigenval[query][1] ||
-            /** **/
                     (iterations == MAX_ITERATIONS_ALLOWED) ||
                     (iterations > 2 &&
                      diff < noise && diff < previous_diff && fabs(previous_diff - diff) < convtol * (previous_diff + diff)
@@ -438,9 +438,11 @@ int main(int argc, char *argv[])
 
         fprintf(stderr, "\n\ninput file: %s\n", basename(argv[1])) /**1*/ ;
 #ifndef __CALC_INTEGRALS_ONLY__
-        double start_t, end_t;
+        double          start_t,
+                        end_t;
 #endif
-        extern double omp_get_wtime(void);
+        extern double   omp_get_wtime(void);
+
         /* create an octree for the n-particle data set */
         //         fprintf(stderr, "mkoctree(sigma_octree_root = mkroot(n));\n");
         //         start_t = omp_get_wtime();
