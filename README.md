@@ -62,6 +62,17 @@ For example, if we aim to perform an adiabatic simulation of cloud
 collision, and we have an initial condition file named 
 collision\_32k-0.data, from time-level 0 through time-level 1000, we do
 
-do-sigmasph-simulation.bash collision\_32k- 0 1000 64 .0001220703125 .125 .027 20 2> collision\_32k-.log &
+../scripts/do-sigmasph-simulation.bash
+../bin/sph-treecode\_anisotropic
+collision\_32k- 0 1000 64 .0001220703125 .125 .027 20 2> collision\_32k-.log &
 
+where the 1th parameter is the path for the executable file,
+the 2nd parameter is the initial frame number (0 in the example),
+the 3rd is the last frame number (1000 in the example)
+the 4th is
+the number of nearest neighbors, the 5th is the
+major time step, the 6th is the aperture parameter, 7th is the softening
+length, and the 8th is the number of threads for Open MP (check your system
+properties before choosing a number of threads).
 
+The standard output error redirection (using the descriptor 2) to a log file named collision\_32k.log is just a suggestion.
