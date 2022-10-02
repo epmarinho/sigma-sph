@@ -66,7 +66,7 @@ collision\_32k-0.data, from time-level 0 through time-level 1000, we do
 ../bin/sph-treecode\_anisotropic
 collision\_32k- 0 1000 64 .0001220703125 .125 .027 20 2> collision\_32k-.log &
 
-where the 1th parameter is the path for the executable file,
+where the 1st parameter is the path for the executable file,
 the 2nd parameter is the initial frame number (0 in the example),
 the 3rd is the last frame number (1000 in the example)
 the 4th is
