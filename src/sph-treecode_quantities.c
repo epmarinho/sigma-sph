@@ -284,7 +284,7 @@ void sph_init(size_t n)
 #    undef H2_MOLECULE
 #endif
 
-            // #define _ADIABATIC_
+#define _ADIABATIC_
 #ifdef _ADIABATIC_
 #    undef _MULTIPHASE_MODEL_
 #    undef _MULTIPHASE_MODEL_2_

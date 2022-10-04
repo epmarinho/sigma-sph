@@ -149,7 +149,7 @@ void show_result(size_t n /*, int ncols */ )
         printf(format1, udot[i]);   // column 10
         printf(format1, rhodot[i]); // column 11
         printf("\t%d\t", isgas[i]); // column 12
-        printf(format1, oneoverCv[i]);  // column 13
+        printf(format1, 1 + oneoverCv[i]);  // column 13
         printf(format1, rho[i]);    // * rho_unit); // column 14
         printf(format1, (meanweight / Rgas * oneoverCv[i] * u[i] * u_unit) /* ⁰K */ );    // column 15
         for (l = 0; l < DIM; l++) {
