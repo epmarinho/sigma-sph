@@ -76,3 +76,5 @@ length, and the 8th is the number of threads for Open MP (check your system
 properties before choosing a number of threads).
 
 The standard output error redirection (using the descriptor 2) to a log file named collision\_32k.log is just a suggestion.
+
+# Teste request
