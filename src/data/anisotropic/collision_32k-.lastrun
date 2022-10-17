@@ -1,0 +1,1 @@
+./scripts/do-sigmasph-simulation.bash ./bin/sigma-treecode_anisotropic collision_32k- 0 3000 64 .00012207031250000000 .125 0.027952
